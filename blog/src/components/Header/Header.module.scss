@@ -1,0 +1,89 @@
+.show{
+    display: block;
+}
+.none{
+    display: none;
+}
+header{
+  box-sizing: border-box;  
+}
+a{
+    text-decoration: none;
+}
+button{
+    background-color: #FFFFFF;
+    border: 0;
+    font-size: 18px;
+    width: 110px;
+    height: 51px;
+    padding: 0;
+    border-radius: 5px;
+}
+.header{
+    min-width: 100%;
+    height: 80px;
+    padding: 16px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-items: center;
+    background-color: #FFFFFF;
+}
+.header__title{
+   font-size: 18px;
+   color: rgba(0, 0, 0, 0.85);
+}
+.auth-buttons__button{
+    cursor: pointer;
+    margin-right: 20px;
+}
+.auth-buttons{
+    display: flex;
+    align-items: center;
+}
+.info-profile{
+    display: flex;
+    align-items: center;
+}
+.img-avatar{
+    width: 46xp;
+    height: 46px;
+    margin-left: 10px;
+    border-radius: 100%;
+}
+.auth-buttons__button-green{
+    cursor: pointer;
+    color: rgba(82, 196, 26, 1);
+    border: 1px solid rgba(82, 196, 26, 1);
+    margin-left: 20px;
+}
+.auth-buttons__button-create{
+    box-sizing: border-box;
+    height: 31px;
+    color: rgba(82, 196, 26, 1);
+    border: 1px solid rgba(82, 196, 26, 1);
+    border-radius: 5px;
+    margin-right: 20px;
+    padding: 6px 10px;
+    font-size: 14px;
+    vertical-align:middle;
+}
+.username{
+    font-size: 18px;
+}
+.auth-buttons__button-black{
+    border: 1px solid #000;
+    margin-left: 20px;
+}
+.auth-buttons__button-green:hover{
+    box-shadow: 0px 0.6087964177131653px 2.9332919120788574px 0px rgba(0, 0, 0, 0.0197);
+    box-shadow: 0px 1.4630224704742432px 7.049108028411865px 0px rgba(0, 0, 0, 0.0283);
+    box-shadow: 0px 2.7547414302825928px 13.272845268249512px 0px rgba(0, 0, 0, 0.035);
+    box-shadow: 0px 4.91398811340332px 23.67648696899414px 0px rgba(0, 0, 0, 0.0417);
+    box-shadow: 0px 9.19107437133789px 44.28426742553711px 0px rgba(0, 0, 0, 0.0503);
+    box-shadow: 0px 22px 106px 0px rgba(0, 0, 0, 0.07);
+}
+button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}

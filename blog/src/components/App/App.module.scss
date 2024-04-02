@@ -1,0 +1,30 @@
+.App {
+  background-color:#EBEEF3;
+  margin: 0 auto;
+  font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+.layout{
+  max-width: 938px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 25px 0;
+}
+.fadeEnter {
+  opacity: 0;
+}
+
+.fadeEnterActive {
+  opacity: 1;
+  transition: opacity 450ms ease-in-out;
+}
+
+.fadeExit {
+  opacity: 1;
+}
+
+.fadeExitActive {
+  opacity: 0;
+  transition: opacity 450ms ease-in-out;
+}

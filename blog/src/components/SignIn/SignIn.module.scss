@@ -1,0 +1,109 @@
+.signIn-block{
+    margin: 0 auto;
+    box-sizing: border-box;
+    width: 384px;
+    padding: 48px 36px;
+    background-color: #fff;
+    border: 1px solid rgba(217, 217, 217, 1);
+    border-radius: 6px;
+    box-shadow: 0px 0.6087964177131653px 2.9332919120788574px 0px rgba(0, 0, 0, 0.0197);
+    box-shadow: 0px 1.4630224704742432px 7.049108028411865px 0px rgba(0, 0, 0, 0.0283);
+    box-shadow: 0px 2.7547414302825928px 13.272845268249512px 0px rgba(0, 0, 0, 0.035);
+    box-shadow: 0px 4.91398811340332px 23.67648696899414px 0px rgba(0, 0, 0, 0.0417);
+    box-shadow: 0px 9.19107437133789px 44.28426742553711px 0px rgba(0, 0, 0, 0.0503);
+    box-shadow: 0px 22px 106px 0px rgba(0, 0, 0, 0.07);
+}
+.title{
+    font-weight: 500;
+    font-size:20px;
+    line-height: 28px;
+    margin: 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.subtitle{
+    font-size: 12px;
+    line-height: 22px;
+    margin: 0;
+    margin-bottom: 2px;
+    color: rgba(38, 38, 38, 1);
+    margin-top: 21px;
+}
+.text-input{
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    line-height: 24px;
+    border: 1px solid rgba(217, 217, 217, 1);
+    border-radius: 4px;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.75);
+}
+.text-input{
+    &:hover, 
+    &:focus,
+    &:active {
+        border: 1px solid rgba(217, 217, 217, 1);
+    }
+}
+.divider{
+    height: 1px;
+    width: 100%;
+    background-color:rgba(232, 232, 232, 1);
+    margin: 21px 0 8px 0;
+}
+.checkbox{
+    width: 16px;
+    height: 16px;
+    border-radius: 5px;
+    vertical-align: sub;
+}
+.checkbox-text{
+    font-size: 14px;
+    color: rgba(89, 89, 89, 1);
+    vertical-align: text-top;
+}
+.submit-button{
+    width: 100%;
+    height: 40px;
+    padding: 8px 16px 8px 16px;
+    border-radius: 4px;
+    background-color: rgba(24, 144, 255, 1);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    cursor: pointer;
+    margin: 21px 0 8px 0;
+}
+.submit-button:hover{
+    background-color: rgb(47, 102, 242);
+}
+.link{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+}
+.link a {
+    text-decoration: none;
+    display:inline;
+}
+.link a:visited{
+    color: rgb(47, 102, 242);
+}
+.error-text{
+    color: red;
+    font-size: 12px;
+    margin: 0;
+}
+.error-input{
+    border: 1px solid red;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+@keyframes shake {
+    0%, 100% {transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {transform: translateX(-1.5px);}
+    20%, 40%, 60%, 80% {transform: translateX(1.5px);}
+  }
