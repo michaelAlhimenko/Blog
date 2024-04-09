@@ -99,17 +99,15 @@ const CreateArticle = (props) => {
 
   const onSubmit = async (data) => {
     const { title, description, body, tags } = data
-    let res
     if (typePage === 'edit') {
-      res = await ServicesPost()
+      await ServicesPost()
         .updateArticle(title, description, body, tags, props.user.token, slug)
         .then(() => props.history.push('/'))
     } else {
-      res = await ServicesPost()
+      await ServicesPost()
         .createArticle(title, description, body, tags, props.user.token)
         .then(() => props.history.push('/'))
     }
-    console.log(res)
   }
   const title = typePage == 'edit' ? 'Edit' : 'Create new article'
   const titleValue = typePage === 'edit' && article ? article.title : ''

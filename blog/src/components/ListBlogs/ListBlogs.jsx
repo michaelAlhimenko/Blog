@@ -10,16 +10,16 @@ import ServicesPost from '../../services/servicesPost'
 
 import style from './ListBlogs.module.scss'
 
-const ListBlogs = ({api_token, currentPage, changeCurrentPage }) => {
+const ListBlogs = ({api_token, currentPage = 1, changeCurrentPage }) => {
   const [articles, setArticles] = useState(undefined)
   const [ offset, setOffset ] = useState(0)
   const [ loading, setLoading ] = useState(true) 
   const [ token, setToken ]= useState(false)
-  // const [notAuthentification, setNotAuthentification] = useState(false)
 
   const changePage = (e) => {
     let offset= (e - 1) * 20
     setOffset(offset)
+    changeCurrentPage(offset)
   }
   useEffect(() => {
     setToken(api_token)
@@ -30,22 +30,18 @@ const ListBlogs = ({api_token, currentPage, changeCurrentPage }) => {
         setArticles(res)
         setLoading(false)
         setLoading(false)
-      }).finally(() => {
+      }).catch((error) => {
+        alert(error)
+      })
+      .finally(() => {
         setLoading(false)
       })
   }, [api_token])
 
   useEffect(() => {
-    return () => changeCurrentPage(offset)
-  }, [offset])
-
-  useEffect(() => {
     Services()
       .getArticles(currentPage, api_token)
       .then((res) => {
-        // if(api_tocken){
-        //   setNotAuthentification(true)
-        // }
         setLoading(true)
         setArticles(res)
         setLoading(false)
@@ -76,8 +72,8 @@ const ListBlogs = ({api_token, currentPage, changeCurrentPage }) => {
   }, [offset])
 
   const content = articles ? articles.articles.map((item) => <Item token={token} key={item.slug} data={item} />) : ''
-  const pagination = articles ? <Pagination defaultCurrent={currentPage ? (currentPage / 20 + 1) : 1} onChange={(e) => changePage(e)} className={style.pagination}  showSizeChanger={false} pageSize={20} total={articles.articlesCount} /> : ''
-  const spiner = loading ? <Spin dotSize={250} className={style.spiner} size='large' tip='loading...'/> : '' 
+  const pagination = articles ? <Pagination defaultCurrent={currentPage / 20 + 1} onChange={(e) => changePage(e)} className={style.pagination}  showSizeChanger={false} pageSize={20} total={articles.articlesCount} /> : ''
+  const spiner = loading ? <Spin className={style.spiner} size='large' /> : '' 
 
   return (
     <div className={style.articles__list}>
@@ -96,10 +92,12 @@ const Item = (data) => {
   useEffect(() => {
     setLiked(favorited)
   }, [])
+
   const formatedDate = (date) => {
     const newDate = parseISO(date)
     return format(newDate, 'MMMM d, yyyy')
   }
+
   const shortenText = (text, maxLength) => {
     if (text.length <= maxLength) {
       return text

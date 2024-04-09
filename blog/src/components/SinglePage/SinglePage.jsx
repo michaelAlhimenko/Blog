@@ -14,7 +14,7 @@ const SinglePage = (props) => {
   const id = props.match.params.id
   const [article, setArticle] = useState(undefined)
   const [articleIsOwn, setArticleIsOwn] = useState(false)
-  console.log(props)
+
   useEffect(() => {
     Services()
       .getArticle(id, props.user.token)
@@ -52,7 +52,7 @@ const Item = ({ auth, data, isOwnArticle, history }) => {
   const { slug, description, title, createdAt, tagList, favoritesCount, author, favorited } = data
   const [favoriteCount, setFavoriteCaunt] = useState(favoritesCount)
   const [liked, setLiked] = useState(false)
-  console.log(data)
+
   useEffect(() => {
     setLiked(favorited)
   }, [])
@@ -91,6 +91,7 @@ const Item = ({ auth, data, isOwnArticle, history }) => {
     const newDate = parseISO(date)
     return format(newDate, 'MMMM d, yyyy')
   }
+
   const buttonsControls = () => {
     if (isOwnArticle) {
       return (
@@ -105,7 +106,7 @@ const Item = ({ auth, data, isOwnArticle, history }) => {
             okText="Yes"
             cancelText="No"
           >
-            <Button>Delete</Button>
+            <Button className={style['button-delete']}>Delete</Button>
           </Popconfirm>
         </>
       )

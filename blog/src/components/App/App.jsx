@@ -23,9 +23,11 @@ function App() {
       downDataFromLocalStorage(userFromLocalStorage)
     }
   }, [])
+
   const downDataFromLocalStorage = (localStorage) => {
     setUser(JSON.parse(localStorage))
   }
+
   const updateUser = (data) => {
     let newData
     setUser((state) => {
@@ -55,33 +57,6 @@ function App() {
     localStorage.removeItem('userOfBlog')
   }
 
-  const list = () => {
-    const userFromLocalStorage = localStorage.getItem('userOfBlog')
-    if (userFromLocalStorage) {
-      if (user) {
-        return (
-          <Route
-            exact
-            path={['/', '/articles']}
-            render={() => (
-              <ListBlogs api_token={user.token} currentPage={currentPage} changeCurrentPage={changeCurrentPage} />
-            )}
-          />
-        )
-      }
-    }
-    if (!userFromLocalStorage) {
-      return (
-        <Route
-          exact
-          path={['/', '/articles']}
-          render={() => (
-            <ListBlogs api_token={user.token} currentPage={currentPage} changeCurrentPage={changeCurrentPage} />
-          )}
-        />
-      )
-    }
-  }
   return (
     <div className={style.App}>
       <Router>
@@ -127,7 +102,6 @@ function App() {
                         }
                       }}
                     />
-                    {list}
                     <Route path={'/articles/:id/edit'} render={(props) => <CreateArticle user={user} {...props} />} />
                     <Route
                       exact

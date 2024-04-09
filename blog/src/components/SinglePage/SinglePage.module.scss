@@ -72,11 +72,15 @@
     height: 31px;
     border-radius: 5px;
     font-size: 14px;
-    margin-left: 5px;
+    margin-left: 10px;
+    width: 100px;
+}
+.button-delete:hover{
+    border: 1px solid rgba(245, 34, 45, 1);
+    color: rgba(245, 34, 45, 1);
 }
 .like{
     width: 5px;
     height: 5px;
     color: black;
-
 }

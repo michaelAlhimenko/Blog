@@ -18,7 +18,6 @@ const ServicesGet = () => {
   }
 
   async function getArticle(slug, api_kay) {
-    console.log(slug)
     const requare = await fetch(`${urlBasic}/articles/${slug}`, {
       method: 'GET',
       headers: {
