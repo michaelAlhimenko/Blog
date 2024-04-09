@@ -15,7 +15,7 @@ const schema = yup.object().shape({
   website: yup.string().url(),
 })
 
-const Profile = ({ user, updateUser }) => {
+const Profile = ({ user, updateUser, history }) => {
   const {
     register,
     handleSubmit,
@@ -30,6 +30,7 @@ const Profile = ({ user, updateUser }) => {
       .updateProfile(data.email, data.username, data.password, data.website, user.token)
       .then((res) => {
         updateUser(res)
+        history.push('/')
       })
   }
   return (

@@ -34,7 +34,6 @@ const ServicesPost = () => {
   }
 
   async function updateProfile(email, username, password, website, api_kay) {
-    console.log(JSON.stringify({ user: { email, username, password, image: website } }))
     const response = await fetch(`${urlBasic}/user`, {
       method: 'PUT',
       headers: {
@@ -52,8 +51,61 @@ const ServicesPost = () => {
     const data = await response.json()
     return data
   }
+  async function createArticle(title, description, body, tags, api_kay) {
+    const response = await fetch(`${urlBasic}/articles`, {
+      method: 'POST',
+      headers: {
+        // eslint-disable-next-line prettier/prettier
+        'Authorization': `Token ${api_kay}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ article: { title, description, body, tagList: [...tags] } }),
+    })
+    if (!response.ok) {
+      throw new Error('error')
+    }
 
-  return { loginUser, registrationUser, updateProfile }
+    const res = await response.json()
+    return res
+  }
+  async function updateArticle(title, description, body, tags, api_kay, slug) {
+    const response = await fetch(`${urlBasic}/articles/${slug}`, {
+      method: 'PUT',
+      headers: {
+        // eslint-disable-next-line prettier/prettier
+        'Authorization': `Token ${api_kay}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ article: { title, description, body, tagList: [...tags] } }),
+    })
+    if (!response.ok) {
+      throw new Error('error')
+    }
+  }
+
+  async function likePost(postId, api_kay) {
+    await fetch(`${urlBasic}/articles/${postId}/favorite`, {
+      method: 'POST',
+      headers: {
+        // eslint-disable-next-line prettier/prettier
+        'Authorization': `Token ${api_kay}`,
+        'Content-Type': 'application/json',
+      },
+    }).then((response) => response.json())
+  }
+
+  async function unlikePost(postId, api_kay) {
+    await fetch(`${urlBasic}/articles/${postId}/favorite`, {
+      method: 'DELETE',
+      headers: {
+        // eslint-disable-next-line prettier/prettier
+        'Authorization': `Token ${api_kay}`,
+        'Content-Type': 'application/json',
+      },
+    }).then((response) => response.json())
+  }
+
+  return { loginUser, registrationUser, updateProfile, createArticle, updateArticle, likePost, unlikePost }
 }
 
 export default ServicesPost

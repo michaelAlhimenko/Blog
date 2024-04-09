@@ -23,8 +23,7 @@
 }
 .info__header{
     display: flex;
-    align-items: start;
-    align-items: center;
+    align-items: flex-end;
     margin-bottom: 8px;
 }
 .info__title{
@@ -62,4 +61,15 @@
 .pagination{
     margin: 0 auto;
     padding-top: 26px;
+}
+.spiner{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.like{
+    width: 5px;
+    height: 5px;
+    color: black;
 }

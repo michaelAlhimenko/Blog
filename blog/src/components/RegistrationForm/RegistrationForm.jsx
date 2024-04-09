@@ -16,7 +16,7 @@ const schema = yup.object().shape({
   terms: yup.bool().oneOf([true], 'Must Accept Terms and Conditions'),
 })
 
-const RegistrationForm = ({ updateUser }) => {
+const RegistrationForm = ({ updateUser, history }) => {
   const [serverErrors, setServerErrors] = useState({})
   const {
     register,
@@ -36,7 +36,7 @@ const RegistrationForm = ({ updateUser }) => {
     } else {
       updateUser(res)
       setServerErrors({})
-      console.log(history.push('/'))
+      history.push('/')
     }
   }
 

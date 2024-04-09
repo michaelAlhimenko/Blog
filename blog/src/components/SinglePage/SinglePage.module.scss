@@ -8,6 +8,7 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 5px;
+    margin-bottom: 22px;
 }
 .info__article{
     display: flex;
@@ -16,9 +17,11 @@
 }
 .info__header{
     display: flex;
-    align-items: start;
-    align-items: center;
-    margin-bottom: 8px;
+    align-items: baseline;
+}
+.info__subheader{
+    display: flex;
+    justify-content: space-between;
 }
 .info__title{
     color: rgba(24, 144, 255, 1);
@@ -54,4 +57,26 @@
     width: 46px;
     height: 46px;
     border-radius: 100%;
+}
+.button-edit{
+    width: 78px;
+    border: 1px solid rgba(82, 196, 26, 1);
+    color: rgba(82, 196, 26, 1);
+    height: 31px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.button-delete{
+    border: 1px solid rgba(245, 34, 45, 1);
+    color: rgba(245, 34, 45, 1);
+    height: 31px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-left: 5px;
+}
+.like{
+    width: 5px;
+    height: 5px;
+    color: black;
+
 }

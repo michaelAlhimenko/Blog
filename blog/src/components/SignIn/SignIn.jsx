@@ -24,17 +24,6 @@ const SignIn = ({ updateUser, history }) => {
     resolver: yupResolver(schema),
   })
 
-  //   const onSubmit = (data) => {
-  //     ServicesPost()
-  //       .loginUser(data.email, data.password)
-  //       .then((res) => {
-  //         updateUser(res)
-  //       })
-  //       .catch((errors) => {
-  //         console.log(errors)
-  //         setServerErrors({ email: errors.message, password: errors.message })
-  //       })
-  //   }
   const onSubmit = async (data) => {
     setServerErrors({})
     const res = await ServicesPost().loginUser(data.email, data.password)
@@ -43,7 +32,7 @@ const SignIn = ({ updateUser, history }) => {
     } else {
       updateUser(res)
       setServerErrors({})
-      console.log(history.push('/'))
+      history.push('/')
     }
   }
 
